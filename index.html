@@ -2,7 +2,27 @@
 layout: default
 title: Tillmann Radmer, Data Scientist & Software Developer
 ---
-<div class="blurb">
-	<h1>Hi there, I'm Tillmann Radmer!</h1>
-	<p>Entrepreneurial Data Scientist with a strong engineering background and passion for seamless product design. Skilled in Python, Deep Learning, Predictive Modeling, FEM analysis and CAD/CAM. <a href="/about">Read more about my life...</a></p>
-</div><!-- /.blurb -->
+
+<div class="header-bar">
+  <h1>{{ page.title }}</h1>
+  <h2>Entrepreneurial Data Scientist with a strong engineering background and passion for seamless product design. Skilled in Python, Deep Learning, Predictive Modeling, FEM analysis and CAD/CAM. <a href="/about">Read more about my life...</a></h2>
+  <br/>
+  <hr>
+  <br/>
+</div>
+
+<ul class="post-list">
+  {% for post in paginator.posts %}
+    <li>
+      <h2>
+        <a class="post-title" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+          {{ post.title }}
+        </a>
+      </h2>
+      <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
+      <p>{{ post.summary }}</p>
+      <br/>
+      <hr/>
+    </li>
+  {% endfor %}
+</ul>
