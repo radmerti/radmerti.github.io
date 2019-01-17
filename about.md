@@ -4,6 +4,14 @@ title: about
 permalink: /about/
 ---
 
+<div class="header-bar">
+  <h1>{{ site.name }}</h1>
+  <h2>Data Scientist</a></h2>
+  <br/>
+  <hr>
+  <br/>
+</div>
+
 <img class="col one right" src="/img/prof_pic.jpg">
 
 <br/>
