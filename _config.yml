@@ -4,6 +4,9 @@ baseurl: /                      # the subpath of your site, e.g. /blog/
 url: http://radmerti.github.io  # the base hostname & protocol for your site
 name: Tillmann Radmer
 email: tillmann.radmer@gmail.com
+github_username: radmerti
+linkedin_username: tillmannradmer
+twitter_username: till_tweets
 permalink: /blog/:year/:month/:day/:title
 
 # Build settings
