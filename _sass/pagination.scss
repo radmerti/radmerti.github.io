@@ -1,0 +1,17 @@
+/**
+ * Pagination   **********************************************************
+ */
+.pagination{
+  max-width: -webkit-calc(800px - (#{$horizontal-spacing-unit} * 2));
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 50px;
+}
+
+.paginationicon {
+  font-size: 50px;
+  a {
+    color: $theme-color;
+  }
+}

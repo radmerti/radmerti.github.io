@@ -1,8 +1,6 @@
-name: Tilmann Radmer's Blog
+title: Tilmann Radmer's Blog
 description: >
   Tillmann Radmer's blog on AI, software development and more.
-baseurl: /                      # the subpath of your site, e.g. /blog/
-url: http://radmerti.github.io  # the base hostname & protocol for your site
 permalink: /blog/:year/:month/:day/:title
 
 author:
