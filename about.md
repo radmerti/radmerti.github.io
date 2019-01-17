@@ -12,10 +12,10 @@ Entrepreneurial Data Scientist with a strong engineering background and passion 
 <hr/>
 <br/>
 <span class="contacticon center">
-	<a href="mailto:{{ site.email }}"><i class="fa fa-envelope-square"></i></a>
-	<a href="https://github.com/{{ site.github_username }}/" target="_blank"><i class="fa fa-github-square"></i></a>
-	<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-	<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="fa fa-twitter-square"></i></a>
+	<a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-square"></i></a>
+	<a href="https://github.com/{{ site.author.github_username }}/" target="_blank"><i class="fa fa-github-square"></i></a>
+	<a href="https://www.linkedin.com/in/{{ site.author.linkedin_username }}/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+	<a href="https://twitter.com/{{ site.author.twitter_username }}" target="_blank"><i class="fa fa-twitter-square"></i></a>
 </span>
 
 <div class="col three caption">
