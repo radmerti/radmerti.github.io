@@ -11,33 +11,3 @@
     {% include footer.html %}
   </body>
 </html>
-
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<!-- <li><a href="/about/">About</a></li> -->
-	        		<!-- <li><a href="/cv/">CV</a></li> -->
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li><a href="mailto:{{ site.author.email }}">email</a></li>
-                    <li><a href="https://github.com/radmerti">github.com/radmerti</a></li>
-                    <li><a href="{{ site.baseurl }}/atom.xml">RSS</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>

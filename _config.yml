@@ -9,6 +9,9 @@ author:
   first_name: Tillmann
   last_name: Radmer
   email: tillmann.radmer@gmail.com
+  github_username: radmerti
+  linkedin_username: tillmannradmer
+  twitter_username: till_tweets
 
 # Build settings
 markdown: kramdown
