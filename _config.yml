@@ -1,14 +1,21 @@
+name: Tilmann Radmer's Blog
 description: >
   Tillmann Radmer's blog on AI, software development and more.
 baseurl: /                      # the subpath of your site, e.g. /blog/
 url: http://radmerti.github.io  # the base hostname & protocol for your site
-name: Tillmann Radmer
-email: tillmann.radmer@gmail.com
 permalink: /blog/:year/:month/:day/:title
+
+author:
+  first_name: Tillmann
+  last_name: Radmer
+  email: tillmann.radmer@gmail.com
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed
 
 # Pagination
 paginate: 15
