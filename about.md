@@ -5,8 +5,8 @@ permalink: /about/
 ---
 
 <div class="header-bar">
-  <h1>{{ site.name }}</h1>
-  <h2>Data Scientist</a></h2>
+  <h1>{{ site.author.first_name }} {{ site.author.last_name }}</h1>
+  <h2>Data Scientist</h2>
   <br/>
   <hr>
   <br/>
