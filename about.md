@@ -1,29 +1,38 @@
 ---
 layout: page
-title: about
+button: about
+title: Tillmann Radmer
+description: Data Scientist
 permalink: /about/
 ---
-
-<div class="header-bar">
-  <h1>{{ site.author.first_name }} {{ site.author.last_name }}</h1>
-  <h2>Data Scientist</h2>
-  <br/>
-  <hr>
-  <br/>
-</div>
-
 <img class="col one right" src="/img/prof_pic.jpg">
 
 <br/>
-Entrepreneurial Data Scientist with a strong engineering background and passion for seamless product design. Skilled in Python, FEM analysis, Java, Management, Predictive Modeling, and CAD/CAM.
+As an entrepreneurial Data Scientist, I thrive on designing solutions to challenges within deep learning and neural networks. My passion for seamless product design stems from my background in industrial engineering, while I refined my affinity for business through academia and praxis. Placing my solutions within the larger context of its surroundings to create wholistic impact is my sweet spot. I enjoy collaborating with data scientists and business nerds alike and don't shy away from a healthy debate.
+
+Besides German, my favorite languages are:
+- English
+- Python
+- Golang
+- Rust
+- JavaScript 
+
+Designing new models and exploring data is especially fun with:
+- TensorFlow
+- scikit-learn
+- pandas
+- matplotlib
+
+
 <br/>
 <hr/>
 <br/>
 <span class="contacticon center">
-	<a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-square"></i></a>
 	<a href="https://github.com/{{ site.author.github_username }}/" target="_blank"><i class="fa fa-github-square"></i></a>
+	<a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-square"></i></a>
 	<a href="https://www.linkedin.com/in/{{ site.author.linkedin_username }}/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
 	<a href="https://twitter.com/{{ site.author.twitter_username }}" target="_blank"><i class="fa fa-twitter-square"></i></a>
+  <a href="https://www.instagram.com/{{ site.author.instagram_username }}" target="_blank"><i class="fa fa-instagram"></i></a>
 </span>
 
 <div class="col three caption">
