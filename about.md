@@ -1,9 +1,10 @@
 ---
-layout: page
+layout: about
 button: about
 title: Tillmann Radmer
 description: Data Scientist
 permalink: /about/
+header_weight: 1
 ---
 <img class="col one right" src="/img/prof_pic.jpg">
 
