@@ -64,10 +64,13 @@
     line-height: 3em;
     z-index: 25;
     h1{
-        color: $theme-color;
-        font-size:75px;
+      color: $theme-color;
+      font-size:75px;
     }
     h2{
-        font-size:25px;
+      font-size:25px;
+    }
+    hr{
+      margin: 30px 0px;
     }
 }
