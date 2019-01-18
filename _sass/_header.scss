@@ -5,12 +5,12 @@
   border-bottom: 1px solid $grey-color-light;
   background-color: #fff;
   opacity: 0.75;
-  position:fixed;
+  // position:fixed;
   left:0px;
   top:0px;
-  height:56px;
+  height:$nav-height;
   width:100%;
-  z-index: 50;
+  // z-index: 50;
 }
 
 .site-title {
@@ -36,7 +36,7 @@
   }
 
   @include media-query($on-palm) {
-    position: fixed;
+    // position: fixed;
     top: 0px;
     right: 10px;
     text-align: right;
@@ -60,7 +60,7 @@
     opacity: 0.75;
     width: 100%;
     text-align: center;
-    padding-top: 25px;
+    // padding-top: 25px;
     line-height: 3em;
     z-index: 25;
     h1{
