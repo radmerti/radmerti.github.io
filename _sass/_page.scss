@@ -2,7 +2,7 @@
  * Page content   **********************************************************
  */
 .page-content {
-  padding: $spacing-unit*(2/3) 0 0 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
+  padding: $spacing-unit*(2/3) 0 $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
   line-height: $base-line-height;
 
   .col{ 
@@ -23,6 +23,7 @@
   font-size: 60px;
   display:block;
   margin: 10px;
+  line-height: 1;
 }
 
 .center{
