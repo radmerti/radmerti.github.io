@@ -4,6 +4,7 @@
 .page-content {
   padding: $spacing-unit*(2/3) 0 $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
   line-height: $base-line-height;
+  min-height: 100vh;
 
   .col{ 
     width: 100%;

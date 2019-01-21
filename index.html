@@ -30,6 +30,7 @@ header_weight: 0
       </div>
     </div>
     {% assign row_counter = row_counter | plus: 1 %}
-    {% if row_counter == 2 %}</div>{% assign row_counter = 0 %}{% endif %}
+    {% if row_counter == 4 %}</div>{% assign row_counter = 0 %}{% endif %}
   {% endfor %}
+  {% if row_counter != 0 %}</div>{% assign row_counter = 0 %}{% endif %}
   </div>

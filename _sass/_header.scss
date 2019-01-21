@@ -2,6 +2,8 @@
  * Site header   **********************************************************
  */
  .site-header {
+  font-family: $header-font-family;
+  font-weight: 300;
   border-bottom: 1px solid $grey-color-light;
   background-color: #fff;
   opacity: 0.75;

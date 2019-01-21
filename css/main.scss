@@ -4,9 +4,10 @@
 
 /** Variables **********************************************/
 $on-palm:                   600px;
-$on-laptop:                 700px;
+$on-laptop:                 1000px;
 
-$base-font-family:          Helvetica, sans-serif;
+$base-font-family:          DroidSerif;
+$header-font-family:        Oswald;
 $base-font-size:            16px;
 $small-font-size:           $base-font-size * 0.875;
 $base-line-height:          1.5;
@@ -58,6 +59,7 @@ $theme-color:   $red;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
+        "fonts",
         "base",
         "header",
         "footer",

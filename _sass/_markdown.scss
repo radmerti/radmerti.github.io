@@ -34,7 +34,7 @@
   code,
   kbd,
   pre {
-    font-family: monospace, monospace;
+    font-family: SourceCodePro, monospace;
     font-size: 1em;
   }
   
@@ -171,13 +171,15 @@
   }
   
   code {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font: 12px RobotoMono, SourceCodePro, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-weight: 400;
   }
   
   pre {
     margin-top: 0;
     margin-bottom: 0;
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font: 12px RobotoMono, SourceCodePro Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-weight: 400;
   }
   
   kbd {
@@ -392,7 +394,7 @@
     padding-top: 0.2em;
     padding-bottom: 0.2em;
     margin: 0;
-    font-size: 85%;
+    // font-size: 85%;
     background-color: rgba(0,0,0,0.04);
     border-radius: 3px;
   }
@@ -406,7 +408,6 @@
   pre>code {
     padding: 0;
     margin: 0;
-    font-size: 100%;
     word-break: normal;
     white-space: pre;
     background: transparent;
@@ -421,7 +422,7 @@
   pre {
     padding: 16px;
     overflow: auto;
-    font-size: 85%;
+    // font-size: 85%;
     line-height: 1.45;
     background-color: #f7f7f7;
     border-radius: 3px;
