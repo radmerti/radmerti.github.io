@@ -22,10 +22,8 @@ Designing new models and exploring data is especially fun with:
 - pandas
 - matplotlib
 
-
-<br/>
 <hr/>
-<br/>
+
 <span class="contacticon center">
 	<a href="https://github.com/{{ site.author.github_username }}/" target="_blank"><i class="fa fa-github-square"></i></a>
 	<a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-square"></i></a>
@@ -33,8 +31,3 @@ Designing new models and exploring data is especially fun with:
 	<a href="https://twitter.com/{{ site.author.twitter_username }}" target="_blank"><i class="fa fa-twitter-square"></i></a>
   <a href="https://www.instagram.com/{{ site.author.instagram_username }}" target="_blank"><i class="fa fa-instagram"></i></a>
 </span>
-
-<div class="col three caption">
-	You can even add a little note about which of these is the best way to reach you.
-</div>
-
