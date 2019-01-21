@@ -2,27 +2,43 @@
 ---
 @charset "utf-8";
 
+/** Variables **********************************************/
+$on-palm:                   600px;
+$on-laptop:                 800px;
 
+$base-font-family:          Helvetica, sans-serif;
+$base-font-size:            16px;
+$small-font-size:           $base-font-size * 0.875;
+$base-line-height:          1.5;
+$spacing-unit:              30px;
+$horizontal-spacing-unit:   50px;
+$vertical-spacing-unit:     40px;
+$nav-height:                40px;
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+/* portfolio tinkering */
+$img_spacing:               5px; 
+$img_height:                275px;
+$caption_font_size:         12px;
+$caption_color:             #aaa;
 
-$spacing-unit:     30px;
+/* COLORS  */
+$red:                       #FF3636;
+$orange:                    #F29105;
+$blue:                      #2698BA;
+$green:                     #11D68B;
+$lime_green:                #B7D12A;
+$purple:                    #B509AC;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$grey-color:                #828282;
+$grey-color-dark:           #333;   /* footer */
+$grey-color-light:          #ddd;  /* navigation bar border */
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$text-color:                #666;
+$background-color:          #fdfdfd;
+$brand-color:               #2a7ae2;
 
-$on-palm:          600px;
-$on-laptop:        800px;
-
+/* Set theme color *************************/
+$theme-color:   $red;
 
 
 // Using media queries with like this:
@@ -47,6 +63,7 @@ $on-laptop:        800px;
         "footer",
         "pagination",
         "page",
+        "post",
         "markdown",
         "syntax-highlighting"
 ;

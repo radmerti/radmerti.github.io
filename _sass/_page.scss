@@ -2,8 +2,8 @@
  * Page content   **********************************************************
  */
 .page-content {
-  padding: 50px 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
-  line-height: 1.5em;
+  padding: $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
+  line-height: $base-line-height;
 
   .col{ 
     width: 100%;
@@ -13,34 +13,10 @@
     box-sizing:border-box;
     padding: $img_spacing;
   }
-
-  .right{
-    float: right;
-  }
-
-  .one {
-    width:33.33%;
-  }
-
-  .two {
-    width: 66.66%;
-  }
-
-  .three{
-    width: 100%;
-  }
 }
 
 .page-heading {
   font-size: 20px;
-}
-
-.post-list {
-  margin: 0px 0;
-  list-style: none;
-  > li {
-    margin-bottom: $vertical-spacing-unit;
-  }
 }
 
 .contacticon {

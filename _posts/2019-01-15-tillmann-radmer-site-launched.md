@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Personal Site Launched"
 date: 2019-01-15 16:40:16
+title: "Personal Site Launched"
 summary: Finally got around to putting this website together. Neat thing about...
 ---
 

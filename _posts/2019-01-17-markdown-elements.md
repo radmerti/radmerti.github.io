@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "Markdown Theme Elements"
 date: 2019-01-17 13:50:16
+categories: ["markdown"]
+title: "Markdown Theme Elements"
 summary: A post showcasing the markdown theme for most markdown elemets.
 ---
 
