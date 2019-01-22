@@ -14,19 +14,19 @@ header_weight: 0
     <div class="column">
       <div class="drop-shadow post-card">
         <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-        <h2 class="post-title">{{ post.title }}</h2>
+          <h2 class="post-title">{{ post.title }}</h2>
           <p class="post-meta">
             {{ post.date | date: '%B %-d, %Y — %H:%M' }}
           </p>
           <p class="post-summary">{{ post.summary }}</p>
-          {% if post.categories %}
-          <ul class="tag-list">
-            {% for category in post.categories %}
-              <il>{{ category }}</il>
-            {% endfor %}
-          </ul>
-          {% endif %}
         </a>
+        {% if post.tags %}
+        <ul class="tag-list">
+          {% for tag in post.tags %}
+          <il><a href="blog/tags/#{{ tag | slugify }}"> {{ tag }} </a></il>
+          {% endfor %}
+        </ul>
+        {% endif %}
       </div>
     </div>
     {% assign row_counter = row_counter | plus: 1 %}

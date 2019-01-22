@@ -108,5 +108,11 @@
     background: $grey-color-light;
     padding: 0px 5px;
     border-radius: 3px;
+    display: inline-block;
+
+    a:hover {
+      color: $theme-color;
+      text-decoration: none;
+    }
   }
 }
