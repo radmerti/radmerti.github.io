@@ -6,12 +6,10 @@ description: My personal blog.
 permalink: /
 header_weight: 0
 ---
-
-<div class="post-grid">
-  {% assign row_counter = 0 %}
+<!-- https://codepen.io/siiron/pen/Ipyuo?editors=1100 -->
+<ul class="grid">
   {% for post in paginator.posts %}
-    {% if row_counter == 0 %}<div class="row">{% endif %}
-    <div class="column">
+    <li class="grid_item span__1">
       <div class="drop-shadow post-card">
         <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
           <h2 class="post-title">{{ post.title }}</h2>
@@ -21,16 +19,15 @@ header_weight: 0
           <p class="post-summary">{{ post.summary }}</p>
         </a>
         {% if post.tags %}
-        <ul class="tag-list">
-          {% for tag in post.tags %}
-          <il><a href="blog/tags/#{{ tag | slugify }}"> {{ tag }} </a></il>
-          {% endfor %}
-        </ul>
+          {% if post.tags.size > 0 %}
+          <ul class="tag-list">
+            {% for tag in post.tags %}
+            <il><a href="blog/tags/#{{ tag | slugify }}"> {{ tag }} </a></il>
+            {% endfor %}
+          </ul>
+          {% endif %}
         {% endif %}
       </div>
-    </div>
-    {% assign row_counter = row_counter | plus: 1 %}
-    {% if row_counter == 4 %}</div>{% assign row_counter = 0 %}{% endif %}
+    </li>
   {% endfor %}
-  {% if row_counter != 0 %}</div>{% assign row_counter = 0 %}{% endif %}
-  </div>
+</ul>
