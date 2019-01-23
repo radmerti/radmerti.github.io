@@ -10,7 +10,7 @@ header_weight: 0
 <ul class="grid">
   {% for post in paginator.posts %}
     <li class="grid_item span__1">
-      <div class="post-card drop-shadow">
+      <div class="post-card">
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"><span></span></a>
 
         <h2 class="post-title">{{ post.title }}</h2>

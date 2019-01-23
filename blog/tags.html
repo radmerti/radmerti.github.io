@@ -18,7 +18,7 @@ header_weight: 1
     {% for post in tag[1] %}
       {% if row_counter == 0 %}<div class="row">{% endif %}
       <div class="column">
-        <div class="drop-shadow post-card">
+        <div class="post-card">
           <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
             <h2 class="post-title">{{ post.title }}</h2>
             <p class="post-meta">

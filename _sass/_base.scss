@@ -25,6 +25,7 @@ body {
     margin-left: auto;
     padding-right: $horizontal-spacing-unit/2;
     padding-left: $horizontal-spacing-unit/2;
+    overflow: auto;
     @extend %clearfix;
 
     @include media-query($on-laptop) {
@@ -59,6 +60,15 @@ body {
     font-family: $header-font-family;
     font-weight: 300;
   }
+
+  /* Inset, by Dan Eden */
+  hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+}
 }
 
 body article {
@@ -68,15 +78,6 @@ body article {
   %vertical-rhythm {
       margin-bottom: $vertical-spacing-unit / 2;
   }
-  
-  /* Inset, by Dan Eden */
-  hr {
-      border: 0;
-      height: 0;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  
-  }
 
   /**
   * Figures & Images
@@ -84,6 +85,9 @@ body article {
   img {
     max-width: 100%;
     box-sizing: border-box;
+    border-radius: $card-border-radius;
+    box-shadow: $shadow-default;
+    background-color: #fff;
   }
 
   figure > img {
@@ -176,8 +180,8 @@ body article {
   code {
     font-family: monospace, monospace;
     font-size: 15px;
-    border-radius: 3px;
-    background-color: $grey-color-light;
+    background-color: $background-darker;
+    border-radius: $card-border-radius;
   }
 
   code {
@@ -196,8 +200,9 @@ body article {
   }
 
   div.highlight {
-    border-radius: 3px;
-    background-color: $grey-color-light;
+    background-color: $background-darker;
+    border-radius: $card-border-radius;
+    box-shadow: $shadow-default;
 
     pre,
     code {
@@ -217,8 +222,4 @@ body article {
         clear: both;
     }
   }
-}
-
-.drop-shadow {
-  box-shadow: 0 1px 2px rgba(0,0,0,0.55)
 }

@@ -15,19 +15,23 @@
     .post-card {
       margin: 5px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: $card-border-radius;
       background: #fff;
-      border: 1px solid $grey-color-light;
+      border: 1px solid transparent;
       display: flex;
       flex-flow: column;
+      box-shadow: $shadow-default;
       
       height: $post-card-height;
+      @include media-query($on-laptop) {
+        height: calc(#{$post-card-height}*0.95);
+      }
       @include media-query($on-palm) {
-        height: calc(#{$post-card-height}*0.75);
+        height: 100%;
       }
 
       &:hover {
-        box-shadow: 0 2px 4px rgba(0,0,0,0.55);
+        box-shadow: $shadow-active;
         border: 1px solid $grey-color;
         // transform: translate(0, -1px);
       }
@@ -38,20 +42,7 @@
         height:100%;
         top:0;
         left: 0;
-      
         z-index: 1;
-        // &:hover {
-        //   color: $text-color;
-        //   text-decoration: none;
-        // }
-  
-        // &:visited {
-        //     color: darken($brand-color, 15%);
-        // }
-  
-        // p:last-child {
-        //   margin-bottom: 0px;
-        // }
       }
   
       p:last-child {

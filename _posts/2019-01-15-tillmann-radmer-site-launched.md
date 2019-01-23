@@ -2,7 +2,12 @@
 layout: post
 date: 2019-01-15 16:40:16
 title: "Personal Site Launched"
-summary: Finally got around to putting this website together. Neat thing about...
+summary: >
+  Finally got around to putting this website together. Neat thing
+  about it - it's powered by Jekyll and I can
+  use Markdown to author my posts.
 ---
 
-Finally got around to putting this website together. Neat thing about it - powered by [Jekyll](http://jekyllrb.com) and I can use Markdown to author my posts.
+Finally got around to putting this website together. Neat thing
+about it - it's powered by [Jekyll](http://jekyllrb.com) and I can
+use Markdown to author my posts.
