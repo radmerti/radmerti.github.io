@@ -1,0 +1,19 @@
+html
+  body
+    header.site-header
+      div.wrapper
+        nav.site-nav
+        div.trigger
+          a.page-link
+          a.page-link
+    div.page-content
+      div.wrapper
+        {{ content }}
+    footer. site-footer
+      div.wrapper
+        p
+          ...
+          a
+          ...
+          a
+          ...
