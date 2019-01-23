@@ -3,30 +3,13 @@
  */
 .page-content {
   padding: $spacing-unit*(2/3) 0 $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
-  line-height: $base-line-height;
   min-height: 100vh;
-
-  .col{ 
-    width: 100%;
-    height: 100%;
-    float: left;
-    object-fit: cover;
-    box-sizing:border-box;
-    padding: $img_spacing;
-  }
-}
-
-.page-heading {
-  font-size: 20px;
 }
 
 .contacticon {
-  font-size: 60px;
+  font-size: 46px;
   display:block;
   margin: 10px;
   line-height: 1;
-}
-
-.center{
   text-align: center;
 }

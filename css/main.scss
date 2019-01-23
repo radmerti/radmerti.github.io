@@ -1,6 +1,7 @@
 ---
 ---
 @charset "utf-8";
+@import "fonts";
 
 /** Variables **********************************************/
 $on-palm:                   600px;
@@ -11,6 +12,7 @@ $header-font-family:        Oswald;
 $base-font-size:            16px;
 $small-font-size:           $base-font-size * 0.875;
 $base-line-height:          1.5;
+
 $spacing-unit:              30px;
 $horizontal-spacing-unit:   50px;
 $vertical-spacing-unit:     40px;
@@ -59,13 +61,11 @@ $theme-color:   $red;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "fonts",
         "base",
+        "highlighting",
         "header",
         "footer",
         "pagination",
         "page",
-        "post",
-        "markdown",
-        "syntax-highlighting"
+        "post"
 ;
