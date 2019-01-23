@@ -9,11 +9,8 @@ dl, dd, ol, ul, figure {
 }
 
 
-/************************************************************/
 
-/**
- * Basic styling
- */
+// Basic styling that applies to all of the body
 body {
   font-family: $base-font-family;
   font-size: $base-font-size;
@@ -22,9 +19,8 @@ body {
   color: $text-color;
   background-color: $background-color;
 
-  /* --------------------------------------------------------------- Wrapper */
   .wrapper {
-    max-width: calc(800px - (#{$horizontal-spacing-unit}));
+    max-width: calc(#{$on-laptop}*0.9 - #{$horizontal-spacing-unit});
     margin-right: auto;
     margin-left: auto;
     padding-right: $horizontal-spacing-unit/2;
@@ -32,18 +28,21 @@ body {
     @extend %clearfix;
 
     @include media-query($on-laptop) {
-        max-width: calc(600px - (#{$horizontal-spacing-unit}));
+        max-width: calc(#{$on-laptop}*0.7 - #{$horizontal-spacing-unit});
         padding-right: $horizontal-spacing-unit/2;
         padding-left: $horizontal-spacing-unit/2;
     }
 
-    // @include media-query($on-palm) {
-    //     max-width: calc(800px - (#{$horizontal-spacing-unit}));
-    //     padding-right: $spacing-unit / 2;
-    //     padding-left: $spacing-unit / 2;
-    // }
+    @include media-query($on-palm) {
+        max-width: calc(#{$on-palm}*0.9 - (#{$horizontal-spacing-unit*0.5}));
+        padding-right: $horizontal-spacing-unit / 4;
+        padding-left: $horizontal-spacing-unit / 4;
+    }
   }
 
+  // Normal links are in the theme color without underline.
+  // Specifically make the links in the article section with
+  // underline like classical web links.
   a {
     color: $text-color;
     text-decoration: none;
@@ -52,12 +51,18 @@ body {
         color: $theme-color;
     }
   }
+
+  /**
+  * Headings
+  */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font-family;
+    font-weight: 300;
+  }
 }
 
 body article {
-  /**
-  * Set `margin-bottom` to maintain vertical rhythm
-  */
+  // Set `margin-bottom` to maintain vertical rhythm
   p, blockquote, pre,
   ul, ol, dl, figure,
   %vertical-rhythm {
@@ -131,14 +136,6 @@ body article {
     > ol {
         margin-bottom: 0;
     }
-  }
-
-  /**
-  * Headings
-  */
-  h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font-family;
-  font-weight: 300;
   }
 
   /**
