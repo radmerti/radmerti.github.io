@@ -36,8 +36,8 @@ body {
 
     @include media-query($on-palm) {
         max-width: calc(#{$on-palm}*0.9 - (#{$horizontal-spacing-unit*0.5}));
-        padding-right: $horizontal-spacing-unit / 4;
-        padding-left: $horizontal-spacing-unit / 4;
+        padding-right: $horizontal-spacing-unit / 10;
+        padding-left: $horizontal-spacing-unit / 10;
     }
   }
 
