@@ -10,26 +10,24 @@ row_span: 2
 thumbnail: signal_processing_output_31_0.png
 ---
 
-
 ### Libraries
-
 
 ```python
 %matplotlib inline
 
 import numpy as np
 import matplotlib.pyplot as plt
+from os.path import join
 ```
 
-### Datei-Import
+### Loading the Data
 
 
 ```python
-#data = np.loadtxt("data/Pickup.txt", comments="%", usecols = (0,1,2,3,4,5,6,7,8,9))
-data = np.loadtxt("data/pickup2_till.csv", delimiter=";")
+data = np.loadtxt(join("..", "data", "imu", "pickup2_till.csv"), delimiter=";")
 # subtract start delay from time stamps
 data[:,0] = data[:,0]-data[0,0]
-#convert milliseconds into seconds:
+# convert milliseconds into seconds:
 data[:,0]=data[:,0]*0.001
 
 # basic properties of the data series
@@ -39,35 +37,33 @@ sample_num = np.shape(data[:,0])[0]
 sample_time = sample_num*sample_interval
 ```
 
-# Die Signale
-### Beschleunigungssensor & Gyroskop
+# The Signals
 
+## Accelerometer & Gyroscope
 
 ```python
 plt.figure(figsize=(16, 16))
 plt.subplot(2,1,1)
-plt.title('x-, y-, z-Achse - Gyroskop')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Winkelbeschleunigung (m/s^2)')
+plt.title('x-, y-, z-axis - Gyroscope')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Angular Acceleration (m/s^2)')
 plt.plot(data[:,0], data[:,4:-8])
 plt.xlim(data[0,0],data[-1,0])
 
 plt.subplot(2,1,2)
-plt.title('x-, y-, z-Achse - Beschleunigungssensor')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Linearbeschleunigung (m/s^2)')
+plt.title('x-, y-, z-axis - Accelerometer')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Linear Acceleration (m/s^2)')
 plt.plot(data[:,0],data[:,1:-11])
 plt.xlim(data[0,0],data[-1,0])
 None
 ```
 
-
 ![png](/img/signal_processing_output_5_0.png)
 
+# Signal Statistic
 
-# Signalstatistik
-## Univariat
-
+## Univariate Statistic
 
 ```python
 # calculate mean and create vector for plotting
@@ -79,15 +75,15 @@ std = np.std(data[:,1])
 
 # plot the signal
 plt.figure(figsize=(16, 10))
-plt.title('y-Achse Beschleunigungssensor')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Linearbeschleunigung (m/s^2)')
-plt.plot(data[:,0],data[:,1], label='x-Achse', color='#555555')
+plt.title('y-axis Accelerometer')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Linear Acceleration (m/s^2)')
+plt.plot(data[:,0],data[:,1], label='x-axis', color='#555555')
 plt.xlim(data[0,0],data[-1,0])
 
 # mean line
 plt.axhline(y=mean, color='g', ls='dashed')
-plt.annotate('Mittelwert ({0:.3f})'.format(mean), xy=(2, 1), xytext=(0.25, 2.5), fontsize=14, color='g')
+plt.annotate('Mean ({0:.3f})'.format(mean), xy=(2, 1), xytext=(0.25, 2.5), fontsize=14, color='g')
 
 # standard deviation line
 plt.axhline(y=mean+std, color='#aaaaaa', ls='dashed')
@@ -104,7 +100,7 @@ None
 ![png](/img/signal_processing_output_7_0.png)
 
 
-### Normiertes (kumuliertes) Histogramm
+### Standardized & Accumulated Histogram
 
 
 ```python
@@ -124,16 +120,16 @@ plt.figure(figsize=(20,15))
 
 # plot the histogram
 plt.subplot(2,1,1)
-plt.title('Normiertes Histogramm')
-plt.xlabel('Beschleunigung (m/s^2)')
-plt.ylabel('relative Häufigkeit')
+plt.title('Standardized Histogram')
+plt.xlabel('Acceleration (m/s^2)')
+plt.ylabel('Relative Frequency')
 plt.xlim(hist_idx[0],hist_idx[-2])
 markerline, stemlines, baseline = plt.stem(hist_idx[0:-1], hist_cnt)
 plt.setp(markerline, markerfacecolor='#555555')
 plt.setp(stemlines, color='#555555')
 # mean line
 plt.axvline(x=mean, color='g', ls='dashed')
-plt.annotate('Mittelwert ({0:.3f})'.format(mean), xy=(0, 0), xytext=(mean+0.2, hist_max*0.97), 
+plt.annotate('Mean ({0:.3f})'.format(mean), xy=(0, 0), xytext=(mean+0.2, hist_max*0.97), 
              fontsize=14, color='g', rotation=90)
 # standard deviation line
 plt.axvline(x=mean+std, color='#aaaaaa', ls='dashed')
@@ -146,16 +142,16 @@ plt.annotate('Median ({0:.3f})'.format(median), xy=(0, 0), xytext=(median+0.2, h
 
 # plot the cumulative histogram
 plt.subplot(2,1,2)
-plt.title('Kumulatives Histogramm')
-plt.xlabel('Beschleunigung (m/s^2)')
-plt.ylabel('kumulierte relative Häufigkeit')
+plt.title('Accumulated Histogram')
+plt.xlabel('Acceleration (m/s^2)')
+plt.ylabel('Accumulated Relative Frequency')
 plt.xlim(hist_idx[0],hist_idx[-2])
 markerline, stemlines, baseline = plt.stem(hist_idx[0:-1], hist_cum)
 plt.setp(markerline, markerfacecolor='#555555')
 plt.setp(stemlines, color='#555555')
 # mean line
 plt.axvline(x=mean, color='g', ls='dashed')
-plt.annotate('Mittelwert ({0:.3f})'.format(mean), xy=(0, 0), xytext=(mean-0.5, hist_cum_max*1.15), 
+plt.annotate('Mean ({0:.3f})'.format(mean), xy=(0, 0), xytext=(mean-0.5, hist_cum_max*1.15), 
              fontsize=14, color='g', rotation=90)
 # standard deviation line
 plt.axvline(x=mean+std, color='#aaaaaa', ls='dashed')
@@ -171,7 +167,7 @@ None
 ![png](/img/signal_processing_output_9_0.png)
 
 
-### Gewöhnliche, zentrierte & normierte Momente
+### Normal, Central and Standardized Central Moments
 
 
 ```python
@@ -184,56 +180,56 @@ inv_len = np.divide(1.0,np.shape(data[:,1])[0])
 
 for k in range(0, num_raw):
     m_raw[k] = np.multiply(np.sum(np.power(data[:,1], k)), inv_len)
-    print("{0}. gewöhnliches Moment: {1:8.3f} (m/s^2)^{0}".format(k, m_raw[k]))
+    print("{0}. normal moment: {1:8.3f} (m/s^2)^{0}".format(k, m_raw[k]))
 
 print("\n")
 for k in range(0, num_central):
     m_central[k] = np.multiply(np.sum(np.power(np.subtract(data[:,1], m_raw[1]), k)), inv_len)
-    print("{0}. zentriertes Moment: {1:8.3f} (m/s^2)^{0}".format(k, m_central[k]))
+    print("{0}. central moment: {1:8.3f} (m/s^2)^{0}".format(k, m_central[k]))
     
 print("\n")
 for k in range(0, num_central):
     m_norm[k] = np.divide(m_central[k], np.sqrt(np.power(m_central[2], k)))
-    print("{0}. normiertes Moment: {1:8.3f}".format(k, m_norm[k]))
+    print("{0}. standardized central moment: {1:8.3f}".format(k, m_norm[k]))
 ```
 
-    0. gewöhnliches Moment:    1.000 (m/s^2)^0
-    1. gewöhnliches Moment:    1.990 (m/s^2)^1
-    2. gewöhnliches Moment:   17.942 (m/s^2)^2
-    3. gewöhnliches Moment:  159.736 (m/s^2)^3
-    4. gewöhnliches Moment: 1646.641 (m/s^2)^4
+    0. normal moment:    1.000 (m/s^2)^0
+    1. normal moment:    1.990 (m/s^2)^1
+    2. normal moment:   17.942 (m/s^2)^2
+    3. normal moment:  159.736 (m/s^2)^3
+    4. normal moment: 1646.641 (m/s^2)^4
     
     
-    0. zentriertes Moment:    1.000 (m/s^2)^0
-    1. zentriertes Moment:   -0.000 (m/s^2)^1
-    2. zentriertes Moment:   13.982 (m/s^2)^2
-    3. zentriertes Moment:   68.383 (m/s^2)^3
-    4. zentriertes Moment:  754.406 (m/s^2)^4
+    0. central moment:    1.000 (m/s^2)^0
+    1. central moment:   -0.000 (m/s^2)^1
+    2. central moment:   13.982 (m/s^2)^2
+    3. central moment:   68.383 (m/s^2)^3
+    4. central moment:  754.406 (m/s^2)^4
     
     
-    0. normiertes Moment:    1.000
-    1. normiertes Moment:   -0.000
-    2. normiertes Moment:    1.000
-    3. normiertes Moment:    1.308
-    4. normiertes Moment:    3.859
+    0. standardized central moment:    1.000
+    1. standardized central moment:   -0.000
+    2. standardized central moment:    1.000
+    3. standardized central moment:    1.308
+    4. standardized central moment:    3.859
     
 
-Die Verteilung ist linksschief und spitz.
+The distribution is left skew and the distribution is not "flat-topped" as the 4th standardized central moment is > 3 (the 4th standardized moment of the normal distribution).
 
-### Entropie
+### Entropy
 
 
 ```python
 hist_cnt, hist_idx = np.histogram(data[:,1], bins=200000)
 hist_cnt = hist_cnt/np.sum(hist_cnt)
 entropy = -np.sum(np.multiply(hist_cnt, np.log2(hist_cnt+0.000000001)))
-print("Entropie: {0:.2f} bit/Zeichen".format(entropy))
+print("Entropy: {0:.2f} bit/symbol".format(entropy))
 ```
 
-    Entropie: 8.44 bit/Zeichen
+    Entropy: 8.44 bit/symbol
     
 
-### Stationarität & Ergodizität
+### Check for Stationary or Ergodic System
 
 
 ```python
@@ -251,22 +247,22 @@ hist_median2 = np.median(data[np.int32(len(data[:,1])/2)+1:,1])
 hist_var1 = np.var(data[:np.int32(len(data[:,1])/2),1])
 hist_var2 = np.var(data[np.int32(len(data[:,1])/2)+1:,1])
 
-print('\n\t \t H1 \t H2\nMittelwerte: \t {0:.3f} \t {1:.3f}\nVarianzen: \t {2:.3f} \t {3:.3f}\n\n'
+print('\n\t \t H1 \t H2\nMean: \t\t {0:.3f} \t {1:.3f}\nVariance: \t {2:.3f} \t {3:.3f}\n\n'
      .format(hist_mean1, hist_mean2, hist_var1, hist_var2))
 
 # plot the histogram1
 plt.figure(figsize=(24,12))
 plt.subplot2grid((2,2), (0, 0))
-plt.title('Histogram 1. Hälfte')
-plt.xlabel('Beschleunigung (m/s^2)')
-plt.ylabel('relative Häufigkeit')
+plt.title('Histogram 1. Half')
+plt.xlabel('Acceleration (m/s^2)')
+plt.ylabel('Relative Frequency')
 plt.xlim(hist_idx1[0],hist_idx1[-2])
 markerline1, stemlines1, baseline1 = plt.stem(hist_idx1[0:-1], hist_cnt1)
 plt.setp(markerline1, markerfacecolor='#555555')
 plt.setp(stemlines1, color='#555555')
 # mean line
 plt.axvline(x=hist_mean1, color='g', ls='dashed')
-plt.annotate('Mittelwert ({0:.3f})'.format(hist_mean1), xy=(0, 0), xytext=(hist_mean1+0.4, hist_max1*0.97), 
+plt.annotate('Mean ({0:.3f})'.format(hist_mean1), xy=(0, 0), xytext=(hist_mean1+0.4, hist_max1*0.97), 
              fontsize=14, color='g', rotation=90)
 # median lin
 plt.axvline(x=hist_median1, color='r', ls='dashed')
@@ -275,16 +271,16 @@ plt.annotate('Median ({0:.3f})'.format(hist_median1), xy=(0, 0), xytext=(hist_me
 
 # plot the histogram2
 plt.subplot2grid((2,2), (1, 0))
-plt.title('Histogram 2. Hälfte')
-plt.xlabel('Beschleunigung (m/s^2)')
-plt.ylabel('relative Häufigkeit')
+plt.title('Histogram 2. Half')
+plt.xlabel('Acceleration (m/s^2)')
+plt.ylabel('Relative Frequency')
 plt.xlim(hist_idx2[0],hist_idx2[-2])
 markerline2, stemlines2, baseline2 = plt.stem(hist_idx2[0:-1], hist_cnt2)
 plt.setp(markerline2, markerfacecolor='#555555')
 plt.setp(stemlines2, color='#555555')
 # mean line
 plt.axvline(x=hist_mean2, color='g', ls='dashed')
-plt.annotate('Mittelwert ({0:.3f})'.format(hist_mean2), xy=(0, 0), xytext=(hist_mean2+0.2, hist_max2*0.95), 
+plt.annotate('Mean ({0:.3f})'.format(hist_mean2), xy=(0, 0), xytext=(hist_mean2+0.2, hist_max2*0.95), 
              fontsize=14, color='g', rotation=90)
 # median lin
 plt.axvline(x=hist_median2, color='r', ls='dashed')
@@ -293,9 +289,9 @@ plt.annotate('Median ({0:.3f})'.format(hist_median2), xy=(0, 0), xytext=(hist_me
 
 # plot the histogram3 - diff
 plt.subplot2grid((2,2), (0, 1), rowspan=2)
-plt.title('Differenz')
-plt.xlabel('Beschleunigung (m/s^2)')
-plt.ylabel('Differenz rel. Häufigkeiten')
+plt.title('Difference')
+plt.xlabel('Acceleration (m/s^2)')
+plt.ylabel('Difference of Relative Frequencies')
 plt.xlim(hist_idx2[0],hist_idx2[-2])
 markerline2, stemlines2, baseline2 = plt.stem(hist_idx2[0:-1], hist_cnt2-hist_cnt1)
 plt.setp(markerline2, markerfacecolor='#555555')
@@ -305,8 +301,8 @@ None
 
     
     	 	 H1 	 H2
-    Mittelwerte: 	 0.295 	 3.688
-    Varianzen: 	 2.401 	 19.827
+    Mean: 		 0.295 	 3.688
+    Variance: 	 2.401 	 19.827
     
     
     
@@ -315,9 +311,9 @@ None
 ![png](/img/signal_processing_output_15_1.png)
 
 
-## Multivariat
+## Multivariate Statistic
 
-### Korrelation
+### Correlation
 
 
 ```python
@@ -334,16 +330,16 @@ cov_matrix = np.cov(cov_input)
 
 plt.figure(figsize=(24, 3))
 plt.subplot(1, 4, 1)
-plt.title('Kovarianzmatrix')
-plt.xlabel('Verschiebung')
-plt.ylabel('Verschiebung')
+plt.title('Covariance Matrix')
+plt.xlabel('Shift')
+plt.ylabel('Shift')
 plt.imshow(cov_matrix, cmap=plt.get_cmap('Greens'), interpolation='none')
 
 plt.colorbar()
 plt.subplot(1, 4, 2)
-plt.title('Korrelationsmatrix')
-plt.xlabel('Verschiebung')
-plt.ylabel('Verschiebung')
+plt.title('Corrlation Matrix')
+plt.xlabel('Shift')
+plt.ylabel('Shift')
 plt.imshow(corr_matrix, cmap=plt.get_cmap('Greens'), interpolation='none')
 plt.colorbar()
 
@@ -354,8 +350,8 @@ for s in range(1,9):
     plt.title('d={0}, Cor: {1:.3f}'.format(shift, np.correlate(data[:-shift,1], data[shift:,1])[0]))
     plt.xlabel('')
     plt.plot(data[:-shift,1], data[shift:,1], linestyle='', marker='+', color='g')
-    plt.xlabel('Beschleunigung (m/s^2)')
-    plt.ylabel('Beschleunigung Verschoben um d={0} (m/s^2)'.format(shift))
+    plt.xlabel('Acceleration (m/s^2)')
+    plt.ylabel('Acceleration shifted by d={0} (m/s^2)'.format(shift))
     plt.xlim(-15,15)
     plt.ylim(-15,15)
 None
@@ -369,7 +365,7 @@ None
 ![png](/img/signal_processing_output_18_1.png)
 
 
-### Faltung im Zeitbereich
+# Convolution in the Time Domain
 
 
 ```python
@@ -380,19 +376,19 @@ smooth_conv = np.convolve(data[:,1], np.multiply(np.ones(smoothing_factor), 1/sm
 plt.figure(figsize=(16, 16))
 
 plt.subplot(2,1,1)
-plt.title('Faltung mit Glättungs-Kernel (1/{0}, ..., 1/{0})'.format(smoothing_factor))
+plt.title('Convolution with smoothing kernel (1/{0}, ..., 1/{0})'.format(smoothing_factor))
 plt.plot(data[:,0], data[:,1], color='#555555')
 plt.plot(data[:,0], smooth_conv[:], color='b')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Linearbeschleunigung (m/s^2)')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Linear Acceleration (m/s^2)')
 plt.xlim(data[0,0], data[-1,0])
 
 plt.subplot(2,1,2)
-plt.title('Faltung mit Differenzen-Kernel (-1, +1)')
+plt.title('Convolution with difference kernel (-1, +1)')
 plt.plot(data[:,0], data[:,1], color='#555555')
 plt.plot(data[:,0], change_conv[:], color='b')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Linearbeschleunigung (m/s^2)')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Linear Acceleration (m/s^2)')
 plt.xlim(data[0,0], data[-1,0])
 None
 ```
@@ -401,7 +397,7 @@ None
 ![png](/img/signal_processing_output_20_0.png)
 
 
-# Frequenzbereich
+# Frequency Domain
 
 
 ```python
@@ -430,7 +426,7 @@ ft_lin_freq = np.concatenate([ft_freq[np.int32(sample_num/2.0):], ft_freq[:np.in
 ft_delta_w = ft_freq[1]-ft_freq[0]
 ```
 
-### Signalstatistik im Frequenzbereich
+### Signal Statistic in the Frequency Domain
 
 
 ```python
@@ -448,16 +444,16 @@ cov_matrix = np.cov(cov_input)
 plt.figure(figsize=(24, 3))
 
 plt.subplot(1, 4, 1)
-plt.title('Kovarianzmatrix')
-plt.xlabel('Verschiebung')
-plt.ylabel('Verschiebung')
+plt.title('Convariance Matrix')
+plt.xlabel('Shift')
+plt.ylabel('Shift')
 plt.imshow(cov_matrix, cmap=plt.get_cmap('Greens'), interpolation='none')
 plt.colorbar()
 
 plt.subplot(1, 4, 2)
-plt.title('Korrelationsmatrix')
-plt.xlabel('Verschiebung')
-plt.ylabel('Verschiebung')
+plt.title('Correlation Matrix')
+plt.xlabel('Shift')
+plt.ylabel('Shift')
 plt.imshow(corr_matrix, cmap=plt.get_cmap('Greens'), interpolation='none')
 plt.colorbar()
 
@@ -467,8 +463,8 @@ for s in range(1,9):
     plt.subplot(2, 4, s)
     plt.title('d={0}, Cor: {1:.3f}'
               .format(shift, np.correlate(np.absolute(data_ft[:-shift]), np.absolute(data_ft[shift:]))[0]))
-    plt.xlabel('Betragsspektrum')
-    plt.ylabel('Betragsspektrum Verschoben um d={0}'.format(shift))
+    plt.xlabel('Norm of Spectrum of the FFT')
+    plt.ylabel('Norm of the Spectrum shifted by d={0}'.format(shift))
     plt.plot(np.absolute(data_ft[:-shift]), np.absolute(data_ft[shift:]), linestyle='', marker='+', color='g')
     plt.xlim(0,2200)
     plt.ylim(0,2200)
@@ -483,7 +479,7 @@ None
 ![png](/img/signal_processing_output_25_1.png)
 
 
-### Tiefpassfilterung - Rechteck Filter
+## Low-Pass Filtering - Box Filter
 
 
 ```python
@@ -505,22 +501,22 @@ plt.figure(figsize=(20,24))
 # 1. Zeile
 plt.subplot2grid((4,3), (0,0))
 plt.title('Original Signal')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Beschleunigung (m/s^2)')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Acceleration (m/s^2)')
 plt.plot(data[:,0], data[:,1], color='#555555')
 plt.xlim(np.min(data[:,0]), np.max(data[:,0]))
 
 plt.subplot2grid((4,3), (0,1))
-plt.title('Realteil der diskreten Fourier Transformierten')
-plt.xlabel('Kreisfrequenz (rad/s)')
-plt.ylabel('Re(F(w))')
+plt.title('Magnitude Spectrum of the Discrete Fourier Trasform')
+plt.xlabel('Angular Frequency (rad/s)')
+plt.ylabel('|F(w)|')
 markerline_ft, stemlines_ft, baseline_ft = plt.stem(ft_freq, data_ft.real, markerfmt=' ')
 plt.setp(stemlines_ft, color='#555555')
 plt.xlim(np.min(ft_freq),np.max(ft_freq))
 
 plt.subplot2grid((4,3), (0,2))
-plt.title('Imaginärteil der diskreten Fourier Transformierten')
-plt.xlabel('Kreisfrequenz (rad/s)')
+plt.title('Phase Spectrum of the Discrete Fourier Transform')
+plt.xlabel('Angular Frequency (rad/s)')
 plt.ylabel('Im(F(w))')
 markerline_ft, stemlines_ft, baseline_ft = plt.stem(ft_freq, data_ft.imag, markerfmt=' ')
 plt.setp(stemlines_ft, color='#555555')
@@ -528,16 +524,16 @@ plt.xlim(np.min(ft_freq),np.max(ft_freq))
 
 # 2. Zeile
 plt.subplot2grid((4,3), (1,0))
-plt.title('Realteil der inversen FT des Rechteckfilters')
-plt.xlabel('Zeit (s)')
+plt.title('Real Part of the Inverse FFT of the Box Filter Kernel')
+plt.xlabel('Time (s)')
 plt.ylabel('g(t)')
 markerline_ft, stemlines_ft, baseline_ft = plt.stem(data[:,0], low_inv.real, markerfmt=' ')
 plt.setp(stemlines_ft, color='#555555')
 plt.xlim(np.min(data[:,0]),np.max(data[:,0]))
 
 plt.subplot2grid((4,3), (1,1))
-plt.title('Rechteck Fenster')
-plt.xlabel('Kreisfrequenz (rad/s)')
+plt.title('Box Filter Kernel')
+plt.xlabel('Angular Frequency (rad/s)')
 plt.ylabel('G(w)')
 plt.plot(ft_freq, low_rect, color='#555555')
 plt.xlim(np.min(ft_freq),np.max(ft_freq))
@@ -545,9 +541,9 @@ plt.ylim(-0.1, 1.1)
 
 # 3. & 4. Zeile
 plt.subplot2grid((4,3), (2,0), colspan=3, rowspan=2)
-plt.title('Original und im Frequenzbereich mit Rechteck mutlipliziertes Signal')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Beschleunigung (m/s^2)')
+plt.title('Origianl and in the Frequency Domain with the Box Filter Multiplied Signal')
+plt.xlabel('Time (Sekunden)')
+plt.ylabel('Acceleration (m/s^2)')
 plt.plot(data[:,0], data[:,1], color='#999999')
 plt.plot(data[:,0], data_inv.real, color='r')
 plt.xlim(np.min(data[:,0]), np.max(data[:,0]))
@@ -558,7 +554,7 @@ None
 ![png](/img/signal_processing_output_27_0.png)
 
 
-### Tiefpassfilterung - Butterworth Filter
+### Low-Pass Filtering - Butterworth Filter
 
 
 ```python
@@ -575,13 +571,13 @@ plt.figure(figsize=(20,24))
 # 1. Zeile
 plt.subplot2grid((4,3), (0,0))
 plt.title('Original Signal')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Beschleunigung (m/s^2)')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Acceleration (m/s^2)')
 plt.plot(data[:,0], data[:,1], color='#555555')
 plt.xlim(np.min(data[:,0]), np.max(data[:,0]))
 
 plt.subplot2grid((4,3), (0,1))
-plt.title('Betragsspektrum der Fouriertrasformierten')
+plt.title('Magnitude Spectrum of the Fourier Trasform')
 plt.xlabel('Kreisfrequenz (rad/s)')
 plt.ylabel('|F(w)|')
 markerline_ft, stemlines_ft, baseline_ft = plt.stem(ft_freq, np.absolute(data_ft), markerfmt=' ')
@@ -589,7 +585,7 @@ plt.setp(stemlines_ft, color='#555555')
 plt.xlim(np.min(ft_freq),np.max(ft_freq))
 
 plt.subplot2grid((4,3), (0,2))
-plt.title('Winkelspektrum der Fouriertransformierten')
+plt.title('Phase Spectrum of the Discrete Fourier Transform')
 plt.xlabel('Kreisfrequenz (rad/s)')
 plt.ylabel('Winkel(F(w))')
 markerline_ft, stemlines_ft, baseline_ft = plt.stem(ft_freq, np.angle(data_ft), markerfmt=' ')
@@ -598,7 +594,7 @@ plt.xlim(np.min(ft_freq),np.max(ft_freq))
 
 # 2. Zeile
 plt.subplot2grid((4,3), (1,0))
-plt.title('Realteil der inversen FT des Butterworth Filter')
+plt.title('Real Part of the Inverse Fourier Transform of the Butterworth Kernel')
 plt.xlabel('Zeit (s)')
 plt.ylabel('g(t)')
 markerline_ft, stemlines_ft, baseline_ft = plt.stem(ft_freq, butter_inv.real, markerfmt=' ')
@@ -606,8 +602,8 @@ plt.setp(stemlines_ft, color='#555555')
 plt.xlim(np.min(ft_freq),np.max(ft_freq))
 
 plt.subplot2grid((4,3), (1,1))
-plt.title('Rechteck-Filter & Butterworth-Filter {0}. Ordnung'.format(butter_order))
-plt.xlabel('Kreisfrequenz (rad/s)')
+plt.title('Box Filter & Butterworth Filter with Rank {0}'.format(butter_order))
+plt.xlabel('Angular Frequency (rad/s)')
 plt.ylabel('G(w)')
 plt.plot(ft_freq, low_rect, color='#555555')
 plt.plot(ft_freq, low_butter, color='r')
@@ -616,9 +612,9 @@ plt.ylim(-0.1, 1.1)
 
 # 3. & 4. Zeile
 plt.subplot2grid((4,3), (2,0), colspan=3, rowspan=2)
-plt.title('Original und im Frequenzbereich mit Butterworth mutlipliziertes Signal')
-plt.xlabel('Zeit (Sekunden)')
-plt.ylabel('Beschleunigung (m/s^2)')
+plt.title('Origianl and in the Frequency Domain with the Box Filter Multiplied Signal')
+plt.xlabel('Time (Sekunden)')
+plt.ylabel('Acceleration (m/s^2)')
 plt.plot(data[:,0], data[:,1], color='#999999')
 plt.plot(data[:,0], data_inv.real, color='r')
 plt.xlim(np.min(data[:,0]), np.max(data[:,0]))
@@ -629,7 +625,7 @@ None
 ![png](/img/signal_processing_output_29_0.png)
 
 
-### Butterworth Filterung im Zeit- und Frequenzbereich
+### Butterworth in Time & Frequency Domain
 
 
 ```python
@@ -639,9 +635,9 @@ butter_conv = np.convolve(data[:,1],
                           mode='same')
 
 plt.figure(figsize=(16,8))
-plt.title('Butterworth Filterung im Zeit- und Frequenzbereich')
-plt.xlabel('Zeit (s)')
-plt.ylabel('Beschleunigung (m/s^2)')
+plt.title('Butterworth in Time & Frequency Domain')
+plt.xlabel('Time (s)')
+plt.ylabel('Acceleration (m/s^2)')
 plt.plot(data[:,0], data[:,1], color='#cccccc')
 plt.plot(data[1:,0], butter_conv[1:], color='b')
 plt.plot(data[1:,0], data_inv.real[:-1], color='r')
