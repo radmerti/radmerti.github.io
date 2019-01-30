@@ -8,24 +8,38 @@ header_weight: 0
 ---
 <!-- https://codepen.io/siiron/pen/Ipyuo?editors=1100 -->
 <ul class="grid">
+
+  {% assign current_column = 0 %}
+
   {% for post in paginator.posts %}
+
     {% if post.row_span %}
       {% assign row_span = post.row_span %}
     {% else %}
       {% assign row_span = 1 %}
     {% endif %}
+
+    {% assign current_column = current_column | plus: row_span %}
+
+    {% if current_column >= 4 %}
+      {% assign row_span = 1 %}
+    {% endif %}
+
     <li class="grid_item span__{{ row_span }}">
       <div class="post-card flow-direction">
+
         <a class="post-link"
            href="{{ post.url | prepend: site.baseurl }}"
            title="{{ post.title }}">
           <span></span>
         </a>
+
         {% if post.thumbnail %}
           <div class="post-thumbnail border-radius"
                style="background-image: url('img/{{ post.thumbnail }}');">
           </div>
         {% endif %}
+
         <div class="card-text-box">
           <h2 class="post-title">{{ post.title }}</h2>
           <p class="post-meta">
@@ -50,7 +64,9 @@ header_weight: 0
           {% endif %}
           {% endif %}
         </div>
+
       </div>
     </li>
+
   {% endfor %}
 </ul>
