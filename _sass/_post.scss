@@ -12,24 +12,6 @@
     transform: translate3d(0,0,0);
     transition: all .2s cubic-bezier(.4,0,.2,1);
 
-    .flow-column {
-      flex-flow: column;
-    }
-
-    .flow-row {
-      flex-flow: row;
-    }
-
-    .border-radius {
-      border-top-left-radius: $card-border-radius;
-      border-top-right-radius: $card-border-radius;
-    }
-
-    .border-radius-left {
-      border-top-left-radius: $card-border-radius;
-      border-bottom-left-radius: $card-border-radius;
-    }
-
     .post-card {
       margin: 5px;
       // padding: 10px;
@@ -137,32 +119,87 @@
 
   .span__1 {
     width: 33.333333%;
+
+    .border-radius {
+      border-radius: $card-border-radius $card-border-radius 0 0;
+    }
+
+    .flow-direction {
+      flex-flow: column;
+    }
   }
 
   .span__2 {
     width: 66.666667%;
+
+    .border-radius {
+      border-radius: $card-border-radius 0 0 $card-border-radius;
+    }
+
+    .flow-direction {
+      flex-flow: row;
+    }
   }
 
   .span__4 {
     width: 100%;
+
+    .border-radius {
+      border-radius: $card-border-radius 0 0 $card-border-radius;
+    }
+
+    .flow-direction {
+      flex-flow: row;
+    }
   }
 
   @include media-query($on-laptop) {
     .span__1,
     .span__2,
-    .span__4{
-      width: 49.545252%;
+    .span__4 {
+      width: 50%;
+
+      .border-radius {
+        border-radius: $card-border-radius $card-border-radius 0 0;
+      }
+  
+      .flow-direction {
+        flex-flow: column;
+      }
+    }
+
+    .span__2,
+    .span__4 {
+      .post-summary {
+        display: none;
+      }
     }
   }
 
   @include media-query($on-palm) {
     .span__1,
     .span__2,
-    .span__4{
+    .span__4 {
       width: 100%;
+
+      .border-radius {
+        border-radius: $card-border-radius $card-border-radius 0 0;
+      }
+  
+      .flow-direction {
+        flex-flow: column;
+      }
+    }
+
+    .span__2,
+    .span__4 {
+      .post-summary {
+        display: inline;
+      }
     }
   }
 }
+
 
 .post {
   padding: 0px 10px;

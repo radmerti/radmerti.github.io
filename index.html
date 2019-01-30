@@ -15,10 +15,16 @@ header_weight: 0
       {% assign row_span = 1 %}
     {% endif %}
     <li class="grid_item span__{{ row_span }}">
-      <div class="post-card {% if row_span > 1 %}flow-row{% else %}flow-column{% endif %}">
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"><span></span></a>
+      <div class="post-card flow-direction">
+        <a class="post-link"
+           href="{{ post.url | prepend: site.baseurl }}"
+           title="{{ post.title }}">
+          <span></span>
+        </a>
         {% if post.thumbnail %}
-          <div class="post-thumbnail {% if row_span > 1 %}border-radius-left{% else %}border-radius-top{% endif %}" style="background-image: url('img/{{ post.thumbnail }}');"></div>
+          <div class="post-thumbnail border-radius"
+               style="background-image: url('img/{{ post.thumbnail }}');">
+          </div>
         {% endif %}
         <div class="card-text-box">
           <h2 class="post-title">{{ post.title }}</h2>
