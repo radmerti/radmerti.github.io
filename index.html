@@ -9,32 +9,41 @@ header_weight: 0
 <!-- https://codepen.io/siiron/pen/Ipyuo?editors=1100 -->
 <ul class="grid">
   {% for post in paginator.posts %}
-    <li class="grid_item span__{% if post.row_span %}{{ post.row_span }}{% else %}1{% endif %}">
-      <div class="post-card">
+    {% if post.row_span %}
+      {% assign row_span = post.row_span %}
+    {% else %}
+      {% assign row_span = 1 %}
+    {% endif %}
+    <li class="grid_item span__{{ row_span }}">
+      <div class="post-card {% if row_span > 1 %}flow-row{% else %}flow-column{% endif %}">
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"><span></span></a>
         {% if post.thumbnail %}
-          <div class="post-thumbnail-crop">
-            <img src="img/{{ post.thumbnail }}" alt="thumbnail">
-          </div>
+          <div class="post-thumbnail {% if row_span > 1 %}border-radius-left{% else %}border-radius-top{% endif %}" style="background-image: url('img/{{ post.thumbnail }}');"></div>
         {% endif %}
-        <h2 class="post-title">{{ post.title }}</h2>
-        <p class="post-meta">
-          {{ post.date | date: '%B %-d, %Y — %H:%M' }}
-        </p>
-        {% if post.thumbnail %}{% else %}
-          <p class="post-summary">{{ post.summary }}</p>
-        {% endif %}
+        <div class="card-text-box">
+          <h2 class="post-title">{{ post.title }}</h2>
+          <p class="post-meta">
+            {{ post.date | date: '%B %-d, %Y — %H:%M' }}
+          </p>
+          {% if post.thumbnail %}
+            {% if row_span > 1 %}
+              <p class="post-summary">{{ post.summary }}</p>
+            {% endif %}
+          {% else %}
+            <p class="post-summary">{{ post.summary }}</p>
+          {% endif %}
 
-        {% if post.tags %}
-        {% if post.tags.size > 0 %}
-        <ul class="tag-list">
-          {% for tag in post.tags %}
-          <!-- <il><a href="blog/tags/#{{ tag | slugify }}"> {{ tag }} </a></il> -->
-          <il>{{ tag }}</il>
-          {% endfor %}
-        </ul>
-        {% endif %}
-        {% endif %}
+          {% if post.tags %}
+          {% if post.tags.size > 0 %}
+          <ul class="tag-list">
+            {% for tag in post.tags %}
+            <!-- <il><a href="blog/tags/#{{ tag | slugify }}"> {{ tag }} </a></il> -->
+            <il>{{ tag }}</il>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endif %}
+        </div>
       </div>
     </li>
   {% endfor %}
