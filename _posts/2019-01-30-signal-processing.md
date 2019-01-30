@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2019-01-30 11:33:29
-tags: [python, "signal processing"]
+date: 2019-01-29 11:33:29
+tags: [python, notebook]
 title: "Fundamental Signal Processing Tools applied to IMU Data"
 summary: >
   I applied some fundamental tools of signal processing to recorded
@@ -62,7 +62,7 @@ None
 ```
 
 
-![png](img/signal_processing_output_5_0.png)
+![png](/img/signal_processing_output_5_0.png)
 
 
 # Signalstatistik
@@ -101,7 +101,7 @@ None
 ```
 
 
-![png](img/signal_processing_output_7_0.png)
+![png](/img/signal_processing_output_7_0.png)
 
 
 ### Normiertes (kumuliertes) Histogramm
@@ -168,7 +168,7 @@ None
 ```
 
 
-![png](img/signal_processing_output_9_0.png)
+![png](/img/signal_processing_output_9_0.png)
 
 
 ### Gewöhnliche, zentrierte & normierte Momente
@@ -312,7 +312,7 @@ None
     
 
 
-![png](img/signal_processing_output_15_1.png)
+![png](/img/signal_processing_output_15_1.png)
 
 
 ## Multivariat
@@ -362,11 +362,11 @@ None
 ```
 
 
-![png](img/signal_processing_output_18_0.png)
+![png](/img/signal_processing_output_18_0.png)
 
 
 
-![png](img/signal_processing_output_18_1.png)
+![png](/img/signal_processing_output_18_1.png)
 
 
 ### Faltung im Zeitbereich
@@ -398,7 +398,7 @@ None
 ```
 
 
-![png](img/signal_processing_output_20_0.png)
+![png](/img/signal_processing_output_20_0.png)
 
 
 # Frequenzbereich
@@ -476,11 +476,11 @@ None
 ```
 
 
-![png](img/signal_processing_output_25_0.png)
+![png](/img/signal_processing_output_25_0.png)
 
 
 
-![png](img/signal_processing_output_25_1.png)
+![png](/img/signal_processing_output_25_1.png)
 
 
 ### Tiefpassfilterung - Rechteck Filter
@@ -555,7 +555,7 @@ None
 ```
 
 
-![png](img/signal_processing_output_27_0.png)
+![png](/img/signal_processing_output_27_0.png)
 
 
 ### Tiefpassfilterung - Butterworth Filter
@@ -626,7 +626,7 @@ None
 ```
 
 
-![png](img/signal_processing_output_29_0.png)
+![png](/img/signal_processing_output_29_0.png)
 
 
 ### Butterworth Filterung im Zeit- und Frequenzbereich
@@ -651,5 +651,5 @@ None
 ```
 
 
-![png](img/signal_processing_output_31_0.png)
+![png](/img/signal_processing_output_31_0.png)
 
