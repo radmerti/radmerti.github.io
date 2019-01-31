@@ -14,3 +14,5 @@ thumbnail: rocket-launch.jpg
 Finally got around to putting this website together. Neat thing
 about it - it's powered by [Jekyll](http://jekyllrb.com) and I can
 use Markdown to author my posts.
+
+![png](/img/rocket-launch.jpg)
