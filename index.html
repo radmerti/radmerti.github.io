@@ -13,17 +13,23 @@ header_weight: 0
 
   {% for post in paginator.posts %}
 
+    {% if current_column >= 3 %}
+      {% assign current_column = 0 %}
+    {% endif %}
+
     {% if post.row_span %}
       {% assign row_span = post.row_span %}
     {% else %}
       {% assign row_span = 1 %}
     {% endif %}
 
-    {% assign current_column = current_column | plus: row_span %}
+    {% assign new_column = current_column | plus: row_span %}
 
-    {% if current_column >= 4 %}
+    {% if new_column >= 4 %}
       {% assign row_span = 1 %}
     {% endif %}
+
+    {% assign current_column = current_column | plus: row_span %}
 
     <li class="grid_item span__{{ row_span }}">
       <div class="post-card flow-direction">
