@@ -25,7 +25,7 @@ header_weight: 0
 
     {% assign new_column = current_column | plus: row_span %}
 
-    {% if new_column >= 4 %}
+    {% if new_column > 3 %}
       {% assign row_span = 1 %}
     {% endif %}
 
@@ -43,6 +43,7 @@ header_weight: 0
         {% if post.thumbnail %}
           <div class="post-thumbnail border-radius"
                style="background-image: url('img/{{ post.thumbnail }}');">
+            <img src="img/{{ post.thumbnail }}" alt="thumbnail">
           </div>
         {% endif %}
 
@@ -52,9 +53,7 @@ header_weight: 0
             {{ post.date | date: '%B %-d, %Y — %H:%M' }}
           </p>
           {% if post.thumbnail %}
-            {% if row_span > 1 %}
-              <p class="post-summary">{{ post.summary }}</p>
-            {% endif %}
+            <p class="post-summary-with-thumbnail">{{ post.summary }}</p>
           {% else %}
             <p class="post-summary">{{ post.summary }}</p>
           {% endif %}

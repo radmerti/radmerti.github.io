@@ -63,6 +63,19 @@
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 0;
+
+        img {
+          display: none;
+        }
+
+        @include media-query($on-palm) {
+          background-image: none !important;
+
+          img {
+            width: 100%;
+            display: inline;
+          }
+        }
       }
 
       .card-text-box {
@@ -73,6 +86,14 @@
         flex-flow: column;
 
         .post-summary {
+          font-size: 14px;
+          margin-bottom: $spacing-unit/2;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          flex-grow: 1;
+        }
+
+        .post-summary-with-thumbnail {
           font-size: 14px;
           margin-bottom: $spacing-unit/2;
           text-overflow: ellipsis;
@@ -128,6 +149,10 @@
     .flow-direction {
       flex-flow: column;
     }
+
+    .post-summary-with-thumbnail {
+      display: none;
+    }
   }
 
   .span__2 {
@@ -142,7 +167,7 @@
     }
   }
 
-  .span__4 {
+  .span__3 {
     width: 100%;
 
     .border-radius {
@@ -157,7 +182,7 @@
   @include media-query($on-laptop) {
     .span__1,
     .span__2,
-    .span__4 {
+    .span__3 {
       width: 50%;
 
       .border-radius {
@@ -169,18 +194,15 @@
       }
     }
 
-    .span__2,
-    .span__4 {
-      .post-summary {
-        display: none;
-      }
+    .post-summary-with-thumbnail {
+      display: none;
     }
   }
 
   @include media-query($on-palm) {
     .span__1,
     .span__2,
-    .span__4 {
+    .span__3 {
       width: 100%;
 
       .border-radius {
@@ -190,11 +212,8 @@
       .flow-direction {
         flex-flow: column;
       }
-    }
 
-    .span__2,
-    .span__4 {
-      .post-summary {
+      .post-summary-with-thumbnail {
         display: inline;
       }
     }
