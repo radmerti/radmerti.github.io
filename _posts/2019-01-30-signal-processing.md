@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-29 11:33:29
+date: 2019-01-30 11:33:29
 tags: [python, notebook]
 title: "Fundamental Signal Processing Tools applied to IMU Data"
 summary: >
