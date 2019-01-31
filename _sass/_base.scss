@@ -164,11 +164,11 @@ body article {
   * Blockquotes
   */
   blockquote {
-    color: $text-color;
+    color: $grey-color;
     border-left: 10px solid $grey-color-light;
     padding-left: $horizontal-spacing-unit / 2;
-    font-size: 18px;
-    font-style: italic;
+    // font-size: 18px;
+    // font-style: italic;
 
     > :last-child {
         margin-bottom: 0;
