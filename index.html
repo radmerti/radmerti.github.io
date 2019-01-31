@@ -1,7 +1,7 @@
 ---
 layout: default
 button: home
-title: Home
+title: Tillmann Radmer's Blog
 description: My personal blog.
 permalink: /
 header_weight: 0
@@ -23,11 +23,14 @@ header_weight: 0
       {% assign row_span = 1 %}
     {% endif %}
 
-    {% assign new_column = current_column | plus: row_span %}
-
-    {% if new_column > 3 %}
-      {% assign row_span = 1 %}
-    {% endif %}
+    {% for i in (0..1) %}
+      {% assign new_column = current_column | plus: row_span %}
+      {% if new_column > 3 %}
+        {% assign row_span = row_span | minus: 1 %}
+      {% else %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
 
     {% assign current_column = current_column | plus: row_span %}
 
