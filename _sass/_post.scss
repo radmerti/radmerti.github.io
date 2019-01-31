@@ -24,7 +24,7 @@
 
       height: $post-card-height;
       @include media-query($on-laptop) {
-        height: calc(#{$post-card-height}*0.95);
+        height: calc(#{$post-card-height}*1.25);
       }
       @include media-query($on-palm) {
         height: 100%;
