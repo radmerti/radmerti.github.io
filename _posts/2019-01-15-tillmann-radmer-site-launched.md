@@ -7,7 +7,7 @@ summary: >
   Finally got around to putting this website together. Neat thing
   about it - it's powered by Jekyll and I can
   use Markdown to author my posts.
-row_span: 4
+row_span: 3
 thumbnail: rocket-launch.jpg
 ---
 
