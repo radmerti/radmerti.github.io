@@ -10,7 +10,11 @@ row_span: 2
 thumbnail: signal_processing_output_31_0.png
 ---
 
-### Libraries
+In this Jupyter notebook I applied some standard tools of signal processing
+to the data that I acquired from the inertial measurement unit (IMU) of
+my smartphone.
+
+# Importing Libraries
 
 ```python
 %matplotlib inline
@@ -20,8 +24,7 @@ import matplotlib.pyplot as plt
 from os.path import join
 ```
 
-### Loading the Data
-
+# Loading the Data
 
 ```python
 data = np.loadtxt(join("..", "data", "imu", "pickup2_till.csv"), delimiter=";")
@@ -37,9 +40,21 @@ sample_num = np.shape(data[:,0])[0]
 sample_time = sample_num*sample_interval
 ```
 
-# The Signals
+# The Accelerometer & Gyroscope Signals
 
-## Accelerometer & Gyroscope
+An IMU typically includes a 3-axis gyroscope and a 3-axis
+accelerometer. Since the sensors must measure a force and by Newton's
+second law `F = m * a` the sensors only measure something when the
+device is accelerating. That is, if I was able to move the smartphone
+at a constant speed in one direction (which I'm not able to with my hands),
+then the accelerometer would not show any reading. Of course in that
+scenario the gyroscope would not have any reading as well since the
+the device is not rotating.
+
+The accelerometer does however show the gravitational force. This can be seen
+in the green line of the plot of the accelerometer data when the device is at
+rest and the "green"-axis is aligned with the gravitational field. The line is
+almost at 10 m/s^2 which is what we would expect (9.81 m/s^2).
 
 ```python
 plt.figure(figsize=(16, 16))
