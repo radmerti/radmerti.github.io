@@ -1,6 +1,6 @@
-title: Tilmann Radmer's Blog
+title: ingenious-machines
 description: >
-  Tillmann Radmer's blog on AI, software development and more.
+  Tillmann Radmer's blog on machine learning, artificial intelligence, software development and more.
 permalink: /blog/:year/:month/:day/:title
 
 author:
