@@ -3,7 +3,6 @@ html
     header.site-header
       div.wrapper
         nav.site-nav
-        div.trigger
           a.page-link
           a.page-link
     div.page-content
