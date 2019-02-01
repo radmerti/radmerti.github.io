@@ -33,10 +33,14 @@
       &:hover {
         box-shadow: $shadow-hover;
         // border: 1px solid $grey-color;
+        @include media-query($on-palm) {
+          box-shadow: $shadow-default;
+        }
       }
 
       &:active {
         box-shadow: $shadow-active;
+        border: 1px solid $grey-color;
       }
 
       a.post-link {
@@ -146,6 +150,10 @@
       border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
     }
 
+    img {
+      border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
+    }
+
     .flow-direction {
       flex-flow: column;
     }
@@ -162,6 +170,10 @@
       border-radius: calc(#{$card-border-radius} - 1px) 0 0 calc(#{$card-border-radius} - 1px);
     }
 
+    img {
+      border-radius: calc(#{$card-border-radius} - 1px) 0 0 calc(#{$card-border-radius} - 1px);
+    }
+
     .flow-direction {
       flex-flow: row;
     }
@@ -172,6 +184,12 @@
 
     .border-radius {
       border-radius: calc(#{$card-border-radius} - 1px) 0 0 calc(#{$card-border-radius} - 1px);
+      border-right: 1px solid $grey-color-light;
+    }
+
+    img {
+      border-radius: calc(#{$card-border-radius} - 1px) 0 0 calc(#{$card-border-radius} - 1px);
+      border-right: 1px solid $grey-color-light;
     }
 
     .flow-direction {
@@ -186,6 +204,10 @@
       width: 50%;
 
       .border-radius {
+        border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
+      }
+
+      img {
         border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
       }
   
@@ -206,6 +228,10 @@
       width: 100%;
 
       .border-radius {
+        border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
+      }
+
+      img {
         border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
       }
   
