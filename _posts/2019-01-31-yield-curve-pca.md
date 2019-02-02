@@ -5,7 +5,7 @@ tags: [python, notebook, pca]
 title: "Analyzing Yield Curves with PCA"
 summary: >
   I use PCA to analyze patterns in the yield curves by year.
-row_span: 1
+row_span: 3
 thumbnail: yield_curve_pca_output_12_0.png
 ---
 

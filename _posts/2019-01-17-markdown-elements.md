@@ -5,7 +5,6 @@ tags: [markdown]
 title: "Markdown Theme Elements"
 summary: A post showcasing the markdown theme for most markdown elemets.
 row_span: 1
-thumbnail: love-markdown.png
 ---
 
 # h1 Heading

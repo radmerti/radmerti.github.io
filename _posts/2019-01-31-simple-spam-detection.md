@@ -6,8 +6,7 @@ title: "Simple Spam Filter Using Back-of-Words"
 summary: >
   I use a simple back-of-words approach and a multinomial Naive Bayes classifier
   to detect spam mails.
-row_span: 3
-thumbnail: spam-inbox-filter.jpg
+row_span: 1
 ---
 
 This is a script that trains a Multinomial Naive Bayes model to detect spam mails. The script can be executed as follows:

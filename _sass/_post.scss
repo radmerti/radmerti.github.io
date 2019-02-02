@@ -166,6 +166,10 @@
   .span__2 {
     width: 66.666667%;
 
+    .card-text-box {
+      max-width: 50%;
+    }
+
     .border-radius {
       border-radius: calc(#{$card-border-radius} - 1px) 0 0 calc(#{$card-border-radius} - 1px);
     }
@@ -181,6 +185,10 @@
 
   .span__3 {
     width: 100%;
+
+    .card-text-box {
+      max-width: 50%;
+    }
 
     .border-radius {
       border-radius: calc(#{$card-border-radius} - 1px) 0 0 calc(#{$card-border-radius} - 1px);
@@ -202,6 +210,10 @@
     .span__2,
     .span__3 {
       width: 50%;
+
+      .card-text-box {
+        max-width: 100%;
+      }
 
       .border-radius {
         border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
@@ -226,6 +238,10 @@
     .span__2,
     .span__3 {
       width: 100%;
+
+      .card-text-box {
+        max-width: 100%;
+      }
 
       .border-radius {
         border-radius: calc(#{$card-border-radius} - 1px) calc(#{$card-border-radius} - 1px) 0 0;
