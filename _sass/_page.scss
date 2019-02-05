@@ -2,7 +2,7 @@
  * Page content   **********************************************************
  */
 .page-content {
-  padding: $spacing-unit*(2/3) 0 $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
+  padding: $spacing-unit*(1/3) 0 $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
   min-height: 100vh;
 
   @include media-query($on-palm) {

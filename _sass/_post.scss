@@ -13,7 +13,7 @@
     transition: all .2s cubic-bezier(.4,0,.2,1);
 
     .post-card {
-      margin: 5px;
+      margin: $spacing-unit/5 $spacing-unit/5 $spacing-unit/5 $spacing-unit/5;
       // padding: 10px;
       border-radius: $card-border-radius;
       background: #fff;
@@ -95,6 +95,7 @@
           text-overflow: ellipsis;
           overflow: hidden;
           flex-grow: 1;
+          max-height: 108.8px;
         }
 
         .post-summary-with-thumbnail {
@@ -107,6 +108,7 @@
   
         .post-title {
           font-size: 22px;
+          padding-top: 0;
         }
   
         .post-meta {
@@ -274,6 +276,7 @@
 
 .post-title {
   line-height: 1.1;
+  padding-top: $spacing-unit/2;
 }
 
 .post-meta {
