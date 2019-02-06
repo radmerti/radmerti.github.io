@@ -6,14 +6,15 @@ title: "Simple Spam Filter Using Back-of-Words"
 summary: >
   I use a simple back-of-words approach and a multinomial Naive Bayes classifier
   to detect spam mails.
-row_span: 1
+row_span: 2
+thumbnail: Spam_can.jpg
 ---
 
 This is a script that trains a Multinomial Naive Bayes model to detect spam mails. The script can be executed as follows:
 
 To train a model run
 
-```
+```bash
 script.py train path/to/spam path/to/nospam
 ```
 
@@ -21,7 +22,7 @@ To evaluate the model using cross-validation (using
 [cross_val_score](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html))
 run
 
-```
+```bash
 script.py cross path/to/spam path/to/nospam
 ```
 
@@ -29,7 +30,7 @@ To find the best set of parameters using a grid search (using
 [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html))
 run
 
-```
+```bash
 script.py grid path/to/spam path/to/nospam
 ```
 
