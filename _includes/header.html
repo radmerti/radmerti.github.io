@@ -1,6 +1,10 @@
 <header class="site-header">
   <div class="wrapper">
-    <a class="site-title" href="/">{{ site.title }}</a>
+    <a class="header-title-link" href="/">
+      <img src="/favicon.ico?v=8" class="header-logo header-logo-nohover"></img>
+      <img src="/favicon-red.ico?v=1" class="header-logo header-logo-hover"></img>
+      {{ site.title }}
+    </a>
     <nav class="site-nav">
       <!-- {{ site.title }} instead of blog -->
       {% assign sortedpages = site.pages | sort:"header_weight" %}

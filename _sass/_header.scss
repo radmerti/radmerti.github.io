@@ -14,18 +14,43 @@
   width:100%;
   // z-index: 50;
 
-  .site-title {
+  .header-title-link {
     float: left;
     line-height: $nav-height;
-    margin-left: $spacing-unit/2;
     margin-bottom: 0;
     
     font-size: 20px;
     letter-spacing: -1px;
-
+    
     &:hover {
       text-decoration: none;
       color: $theme-color;
+
+      .header-logo-hover {
+        visibility: visible;
+        display: inline-block;
+      }
+
+      .header-logo-nohover {
+        visibility: hidden;
+        display: none;
+      }
+    }
+
+    .header-logo {
+      float: left;
+      height: 24px;
+      margin: 10px $spacing-unit/4 6px $spacing-unit/2;
+    }
+
+    .header-logo-hover {
+      visibility: hidden;
+      display: none;
+    }
+
+    .header-logo-nohover {
+      visibility: visible;
+      display: inline-block;
     }
   }
   
