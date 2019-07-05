@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <div class="post">
 
   <div class="header-bar">
@@ -14,6 +15,38 @@ layout: default
     {{ content }}
   </article>
 
+  <hr/>
+
+  <div id="app">
+    <v-app id="inspire" style="background-color: #fff;">
+      <v-timeline dense align-top>
+        <v-timeline-item
+          v-for="(item, i) in items"
+          :key="i"
+          :color="item.color"
+          :icon="item.icon"
+          fill-dot
+        >
+          <template v-slot:opposite>
+            <span
+              :class="`headline font-weight-bold ${item.color}--text`"
+              v-text="`${item.start} - ${item.end}`"
+            ></span>
+          </template>
+          <div class="pb-3 pt-2">
+            <span class="grey--text" v-text="`${item.start} - ${item.end}`"></span><br>
+            <h2 
+              :class="`headline font-weight-light mb-3 ${item.color}--text`"
+              v-text="item.position"
+            ></h2>
+            <div
+              v-text="item.description"
+            ></div>
+          </div>
+        </v-timeline-item>
+      </v-timeline>
+    </v-app>
+  </div>
 
   <hr/>
 
@@ -26,3 +59,104 @@ layout: default
   </span>
 
 </div>
+
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@1.5.16/dist/vuetify.min.css">
+
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+
+<script>
+Vue.use(Vuetify);
+
+new Vue({
+  el: '#app',
+  data: () => ({
+    items: [
+      {
+        color: 'red',
+        color_modifier: 'lighten-2',
+        icon: 'work',
+        start: 'July 2017',
+        end: 'today',
+        position: 'Data Scientist at Factor-E Analytics GmbH',
+        description: 'Responsible for researching and implementing probablistic models for classification of real-time energy data from diverse production machines. The focus is on state-of-the-art algorithms and unsupervised training.'
+      },
+      {
+        color: 'red',
+        color_modifier: 'lighten-2',
+        icon: 'work',
+        start: 'April 2017',
+        end: 'Juni 2017',
+        position: 'Working Student Data Scientist at Factor-E Analytics GmbH',
+        description: 'Researching statistical probablistic models for time series classification. The main focus was on unsupervised training of Hidden Markov Models for series segmentation.'
+      },
+      {
+        color: 'red',
+        color_modifier: 'lighten-2',
+        icon: 'work',
+        start: 'December 2016',
+        end: 'March 2017',
+        position: 'Freelance Consultant for Pyramics UG',
+        description: 'Development of a deep convolutional neural network for image classification in Python/TensorFlow. I was responsible for the research and development of a state-of-the-art network architecture, data acquisition and integration, development of repeatable test cases and metrics, and integration into an embedded platform.'
+      },
+      {
+        color: 'red',
+        color_modifier: 'lighten-2',
+        icon: 'work',
+        start: 'May 2016',
+        end: 'October 2016',
+        position: 'Freelance Consultant for Pyramics UG',
+        description: 'Complete design, development and production management of an analysitcs-sensor. The challenges included the need for wireless and cellular connectivity, which required the use of permeable materials.'
+      },
+      {
+        color: 'purple',
+        color_modifier: 'lighten-2',
+        icon: 'school',
+        start: 'October 2015',
+        end: 'March 2017',
+        position: 'Master of Science Information Systems',
+        description: 'The studies focused on machine learning and data science. I learned about many fields of machine learning including churn prediction, natural language processing, and uplift modeling. I further gained valuable experience in statistical signal processing (FFT, auto-correlation analysis, smoothing). The studies were completed by courses in statistics and software development.'
+      },
+      {
+        color: 'red',
+        color_modifier: 'lighten-2',
+        icon: 'work',
+        start: 'September 2014',
+        end: 'September 2015',
+        position: 'Research & Development at Protonet GmbH',
+        description: 'My main responsibility was development of thermal solutions for passively cooled home servers. The development was done in Rhino3D CAD and CFD simulation of airflow with OpenFOAM. I also gained experience with many production technologies including 3D printing, aluminum extrusion, laser cutting, CNC milling and sheet metal bending.'
+      },
+      {
+        color: 'red',
+        color_modifier: 'lighten-2',
+        icon: 'work',
+        start: 'October 2012',
+        end: 'January 2014',
+        position: 'Tutor for C++ Programming at the HAW Hamburg',
+        description: 'I held C++ tutorials for the coding class at the HAW Hamburg. The students learned fundamentals of functional and object oriented programming, memory allocation and pointer arithmetic. I had complete responsibility for the success of the students and independently graded homework and midterm exams.'
+      },
+      {
+        color: 'purple',
+        color_modifier: 'lighten-2',
+        icon: 'school',
+        start: 'October 2012',
+        end: 'October 2015',
+        position: 'Master of Science Industrial Engineering & Management',
+        description: 'Studying for 4 semesters. During those studies I focused on numerical simulation and hardware development, including CFD computation, multi- physics and modeling of system dynamics. I also completed courses on innovation and supply-chain management.'
+      },
+      {
+        color: 'purple',
+        color_modifier: 'lighten-2',
+        icon: 'school',
+        start: 'October 2009',
+        end: 'March 2013',
+        position: 'Bachelor of Science Industrial Engineering & Management',
+        description: 'The studies focused on operations & supply chain management and production technology. A large part of the bachelor program covered math and natural sciences of physics, chemistry and mechanics.'
+      }
+    ]
+  })
+})
+</script>

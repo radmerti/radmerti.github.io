@@ -16,7 +16,7 @@
    id="svg8"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    sodipodi:docname="robot-icon.svg"
-   inkscape:export-filename="/Users/tillmannradmer/Repos/radmerti.github.io/_docs/robot-icon-006-red.png"
+   inkscape:export-filename="/Users/tillmannradmer/Repos/radmerti.github.io/_docs/robot-icon-006.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -975,12 +975,12 @@
             <ellipse
                ry="11.823039"
                rx="11.823996"
-               style="opacity:1;fill:#ff3636;fill-opacity:1;stroke:none;stroke-width:8.46666622;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               style="opacity:1;fill:#161616;fill-opacity:1;stroke:none;stroke-width:8.46666622;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
                id="ellipse1320"
                cx="43.100018"
                cy="224.4595" />
             <rect
-               style="opacity:1;fill:none;fill-opacity:1;stroke:#ff3636;stroke-width:12.69999886;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               style="opacity:1;fill:none;fill-opacity:1;stroke:#180000;stroke-width:12.69999886;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
                id="rect1322"
                width="114.29861"
                height="68.430313"
@@ -993,13 +993,13 @@
                cy="224.45952"
                cx="92.366653"
                id="ellipse1324"
-               style="opacity:1;fill:#ff3636;fill-opacity:1;stroke:none;stroke-width:8.46666622;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+               style="opacity:1;fill:#161616;fill-opacity:1;stroke:none;stroke-width:8.46666622;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
             <path
                sodipodi:nodetypes="ccccccc"
                inkscape:connector-curvature="0"
                id="path1326"
-               d="M 40.649818,272.05702 V 290.833 l 26.157961,-9.38798 26.157962,9.38798 v -18.77598 l -26.157962,9.388 z"
-               style="fill:#ff3636;fill-opacity:1;fill-rule:evenodd;stroke:#ff3636;stroke-width:7.9375;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+               d="m 40.649818,273.11536 v 18.77598 l 26.157961,-9.38798 26.157962,9.38798 v -18.77598 l -26.157962,9.388 z"
+               style="fill:#180000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:7.9375;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
           </g>
         </g>
       </g>

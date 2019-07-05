@@ -6,7 +6,7 @@
   min-height: 100vh;
 
   @include media-query($on-palm) {
-    padding: $spacing-unit/5 0 $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
+    padding: $spacing-unit/3 0 $spacing-unit 0; /* VERTICAL PADDING FOR TITLE ON EVERY PAGE */
   }
 }
 

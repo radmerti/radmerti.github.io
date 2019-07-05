@@ -2,7 +2,7 @@
 layout: about
 button: about
 title: Tillmann Radmer
-description: Data Scientist
+description: Data Scientist & Software Developer
 permalink: /about/
 header_weight: 2
 ---
