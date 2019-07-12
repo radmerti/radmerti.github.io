@@ -20,6 +20,7 @@ body {
   background-color: $background-color;
 
   .wrapper {
+    box-sizing: border-box;
     max-width: calc(#{$on-laptop}*0.9 - #{$horizontal-spacing-unit});
     margin-right: auto;
     margin-left: auto;
