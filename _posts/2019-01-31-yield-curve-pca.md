@@ -9,6 +9,9 @@ row_span: 1
 thumbnail: yield_curve_pca_output_12_0.png
 ---
 
+<!-- <script src="/js/MathJax.js" type="text/javascript" async></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' type="text/javascript"></script>
+
 > A bond’s yield is the amount that it pays each year in interest as a percentage of its current price. For example, if a bond is sold at $100 and pays $5 per year, its yield is 5%. When the price of a bond goes up, its yield goes down – if that same bond is now being sold for $105, its yield would be 4.76% (5/105). And the same applies the other way around – if the price of that bond dropped to $95, its yield would go up to 5.26% (5/95). A bond’s yield (as per its current price) is, effectively, its current interest rate. - [finimize.](https://www.finimize.com/wp/definition/bond-yield/)
 
 In this notebook I used PCA to analyze the yield curve of government bonds with
